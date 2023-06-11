@@ -92,6 +92,8 @@ OmniObject3D_Data_Root
     │   │   ├── 4096
     │   │   ├── 16384
 ```
+## Benchmarks
+The codebase is coming soon.
 
 ## License
 The OmniObject3D dataset is released under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
