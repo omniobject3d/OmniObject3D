@@ -17,10 +17,10 @@
     <a href='https://scholar.google.com.hk/citations?user=jZH2IPYAAAAJ&hl=en' target='_blank'>Lei Yang</a>&emsp;
     <a href='https://myownskyw7.github.io/' target='_blank'>Jiaqi Wang</a>&emsp;
     <a href='https://scholar.google.com/citations?view_op=list_works&hl=zh-CN&hl=zh-CN&user=AerkT0YAAAAJ&sortby=pubdate' target='_blank'>Chen Qian</a>&emsp;
-    <a href='https://scholar.google.com/citations?user=GMzzRRUAAAAJ&hl=zh-CN' target='_blank'>Dahua Lin</a>&emsp;
-    <a href='https://liuziwei7.github.io/' target='_blank'>Ziwei Liu</a>&emsp;
+    <a href='https://scholar.google.com/citations?user=GMzzRRUAAAAJ&hl=zh-CN' target='_blank'>Dahua Lin&#9993</a>&emsp;
+    <a href='https://liuziwei7.github.io/' target='_blank'>Ziwei Liu&#9993</a>&emsp;
 </div>
-
+    
 <strong>Accepted to <a href='https://cvpr2023.thecvf.com/' target='_blank'>CVPR 2023</a> as Award Candidate </strong> :partying_face:
 
 <strong><a href='https://omniobject3d.github.io/' target='_blank'>Project</a>&emsp;</strong>
