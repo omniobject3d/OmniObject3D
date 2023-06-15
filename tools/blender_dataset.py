@@ -88,7 +88,7 @@ def load_blender_data(basedir, half_res=False, test_ratio=0.125):
     return imgs, poses, render_poses, [H, W, focal], i_split, img_files
 
 class Dataset:
-    # Dataset Module in the format of NeuS.
+    # Dataset Module in the format of NeuS(https://github.com/Totoro97/NeuS/blob/main/models/dataset.py).
     def __init__(self, conf):
         super(Dataset, self).__init__()
         print('Load data: Begin')
