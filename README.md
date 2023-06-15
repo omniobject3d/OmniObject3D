@@ -1,9 +1,9 @@
-# OmniObject3D Toolbox
+# OmniObject3D
 
 
 <div align="center">
 
-<h1>OmniObject3D: Large-Vocabulary 3D Object Dataset for Realistic Perception, Reconstruction and Generation
+<h1> Large-Vocabulary 3D Object Dataset for Realistic Perception, Reconstruction and Generation
 </h1>
 
 <div>
@@ -12,19 +12,19 @@
     <a href='https://fuxiao0719.github.io/' target='_blank'>Xiao Fu</a>&emsp;
     Yuxin Wang&emsp;
     <a href='https://jiawei-ren.github.io/' target='_blank'>Jiawei Ren</a>&emsp;
-    <a href='https://scholar.google.com/citations?user=lSDISOcAAAAJ&hl=zh-CN' target='_blank'>Liang Pan</a>&emsp;
+    <a href='https://scholar.google.com/citations?user=lSDISOcAAAAJ&hl=zh-CN' target='_blank'>Liang Pan</a>&emsp;<br>
     <a href='https://wywu.github.io/' target='_blank'>Wayne Wu</a>&emsp;
     <a href='https://scholar.google.com.hk/citations?user=jZH2IPYAAAAJ&hl=en' target='_blank'>Lei Yang</a>&emsp;
     <a href='https://myownskyw7.github.io/' target='_blank'>Jiaqi Wang</a>&emsp;
     <a href='https://scholar.google.com/citations?view_op=list_works&hl=zh-CN&hl=zh-CN&user=AerkT0YAAAAJ&sortby=pubdate' target='_blank'>Chen Qian</a>&emsp;
-    <a href='https://scholar.google.com/citations?user=GMzzRRUAAAAJ&hl=zh-CN' target='_blank'>Dahua Lin</a>&emsp;
-    <a href='https://liuziwei7.github.io/' target='_blank'>Ziwei Liu</a>&emsp;
+    <a href='https://scholar.google.com/citations?user=GMzzRRUAAAAJ&hl=zh-CN' target='_blank'>Dahua Lin&#9993</a>&emsp;
+    <a href='https://liuziwei7.github.io/' target='_blank'>Ziwei Liu&#9993</a>&emsp;
 </div>
-
+    
 <strong>Accepted to <a href='https://cvpr2023.thecvf.com/' target='_blank'>CVPR 2023</a> as Award Candidate </strong> :partying_face:
 
 <strong><a href='https://omniobject3d.github.io/' target='_blank'>Project</a>&emsp;</strong>
-<strong><a href='https://arxiv.org/abs/2208.12697' target='_blank'>Paper</a>&emsp;</strong>
+<strong><a href='https://arxiv.org/abs/2301.07525' target='_blank'>Paper</a>&emsp;</strong>
 <strong><a href='https://opendatalab.com/OpenXD-OmniObject3D-New/download' target='_blank'>Data</a></strong>
 </div>
 
@@ -92,6 +92,8 @@ OmniObject3D_Data_Root
     │   │   ├── 4096
     │   │   ├── 16384
 ```
+## Benchmarks
+The codebase is coming soon.
 
 ## License
 The OmniObject3D dataset is released under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
