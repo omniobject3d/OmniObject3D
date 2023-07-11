@@ -96,7 +96,7 @@ OmniObject3D_Data_Root
 The codebase is coming soon.
 
 ## TODO
-- [] Language annotations.
+- [ ] Language annotations.
 
 ## License
 The OmniObject3D dataset is released under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
