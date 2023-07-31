@@ -3,13 +3,13 @@
 This is a short documentation of OmniObject3D's benchmark, 3D object generation, organized as follows:
 
 - [3D Object Generation Benchmark](#3d-object-generation-benchmark)
-  - [Data](#data)
-  - [Training](#training)
-    - [GET3D](#get3d)
-  - [Evaluation](#evaluation)
+  - [Data](##Data)
+  - [Training](##Training)
+    - [GET3D](###GET3D)
+  - [Evaluation](##Evaluation)
 
 ## Data
-
+We provide the raw scans, 100-view rendered images (under the [nerf_synthetic dataset](https://github.com/bmild/nerf) format), and 24-view rendered images following the format of [GET3D](https://github.com/nv-tlabs/GET3D). The data could be downloaded following the instructions [here](https://github.com/omniobject3d/OmniObject3D#download-the-dataset).
 
 ## Training
 OmniObject3D implements 3D object generation using the official codebase of [GET3D](https://github.com/nv-tlabs/GET3D). We use default hyperparameters for the experiments. 
