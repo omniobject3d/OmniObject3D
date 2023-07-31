@@ -1,0 +1,34 @@
+### INPUT
+expname = oo3d
+rootdir = /mnt/petrelfs/fuxiao/IBRNet/          # change it to your own path
+datadir = /mnt/petrelfs/share_data/zhangjiarui.p/data_blender_processed     # change it to your own path
+render_stride = 1
+distributed = True
+num_source_views = 3
+
+## dataset
+train_dataset = oo3d
+dataset_weights = [1.]
+eval_dataset = oo3d
+
+### TRAINING
+N_rand = 4096               # 2048 for single cat
+lrate_feature = 0.001
+lrate_mlp = 0.0005
+lrate_decay_factor = 0.5
+n_iters = 300000            # 50000 for single cat
+lrate_decay_steps = 50000   # 10000 for single cat
+
+### TESTING
+chunk_size = 2000
+
+### RENDERING
+N_importance = 64
+N_samples = 64
+inv_uniform = True
+white_bkgd = False
+
+### CONSOLE AND TENSORBOARD
+i_img = 5000
+i_print = 100
+i_weights = 5000
