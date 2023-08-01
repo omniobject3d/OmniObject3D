@@ -106,7 +106,8 @@ python compute_cd_mmd.py path/to/your/results_mesh --n_points 2048 --save_path .
 
 The standard output format would be:
 ```
--- my_results
+-- outputs # do NOT rename this
 ---- covmmd
 ---- fid128
 ```
+Compress the folder into a zip file and upload it!
