@@ -1,10 +1,6 @@
 # Sparse-view reconstruction Benchmark
 
-This is a short documentation of OmniObject3D's benchmark, 3D reconstruction and novel view synthesis (NVS) given sparse-view observations, organized as follows:
-
-- [Data](## Data)
-- [Training](##Training)
-- [Rendering](##Evaluation)
+This is a short documentation of 3D reconstruction and novel view synthesis (NVS) given sparse-view observations on OmniObject3D.
 
 ## :floppy_disk: Data
 - Download our public dataset by
