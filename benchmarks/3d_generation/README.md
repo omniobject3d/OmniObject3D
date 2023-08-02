@@ -51,7 +51,7 @@ python train_3d.py --outdir=PATH_TO_LOG \
 ```
 
 ## Evaluation
-If you are interested in attending our [challenge]() in the generation track, we provide instructions on preparing the outputs for submission in the standard format.
+If you are interested in attending our [challenge](https://omniobject3d.github.io/challenge.html) in the generation track, we provide instructions on preparing the outputs for submission in the standard format.
 
 
 First, randomly generate 5,000 objects and render each of them from 10 randomly sampled view points for 2D evaluation:
