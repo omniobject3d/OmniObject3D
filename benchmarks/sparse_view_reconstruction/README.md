@@ -12,7 +12,7 @@ odl get OpenXD-OmniObject3D-New/raw/blender_renders
 ```
 ['toy_train', 'bread', 'cake', 'toy_boat', 'hot_dog', 'wallet', 'pitaya', 'squash', 'handbag', 'apple']
 ```
-- To attend our [challenge @ ICCV 2023](https://omniobject3d.github.io/challenge.html), the hidden test set can be obtained [here](https://drive.google.com/file/d/1i5HPCdCoqoNv1q5V55hVWZaleRYc1xEc/view?usp=drive_link).
+- To attend our [challenge @ ICCV 2023](https://omniobject3d.github.io/challenge.html), the hidden test set can be obtained [here](https://drive.google.com/file/d/1GKEa-r1__tnVKAZSF5I5uWcLh1cAllqh/view?usp=drive_link).
 
 
 ## :hammer: Training
@@ -76,7 +76,7 @@ MVSNeRF constructs a cost volume by warping 2D image features onto a plane sweep
 git clone git@github.com:apchenstu/mvsnerf.git
 cp -r -f _mvsnerf/* mvsnerf/
 ```
-
+Download 'poses.json' and 'ref_src_pairs.json' at [here](https://drive.google.com/drive/folders/1vxJuPFYdqhiayBzO0FU8ZAUlThB93esy?usp=drive_link) and then put them at 'mvsnerf/'.
 ```
 # pretraining
 python train_mvs_nerf_pl.py \
@@ -128,7 +128,7 @@ IBRNet represents each image as a individual scene and applys transformer to agg
 git clone git@github.com:googleinterns/IBRNet.git
 cp -r -f _ibrnet//* IBRNet/
 ```
-
+Download 'poses.json' and 'ref_src_pairs.json' at [here](https://drive.google.com/drive/folders/1vxJuPFYdqhiayBzO0FU8ZAUlThB93esy?usp=drive_link) and then put them at 'IBRNet/'.
 ```
 # pretraining
 python -m torch.distributed.launch --nproc_per_node=4 train.py --config configs/oo3d.txt
