@@ -2,11 +2,11 @@
 
 This is a short documentation of OmniObject3D's benchmark, 3D reconstruction and novel view synthesis (NVS) given sparse-view observations, organized as follows:
 
-- [Data](##Data)
+- [Data](## Data)
 - [Training](##Training)
 - [Rendering](##Evaluation)
 
-## Data
+## :floppy_disk: Data
 - Download our public dataset by
 ```
 odl login
@@ -16,10 +16,10 @@ odl get OpenXD-OmniObject3D-New/raw/blender_renders
 ```
 ['toy_train', 'bread', 'cake', 'toy_boat', 'hot_dog', 'wallet', 'pitaya', 'squash', 'handbag', 'apple']
 ```
-- To attend our [challenge @ ICCV 2023](), the hidden test set can be obtained [here](https://drive.google.com/file/d/1i5HPCdCoqoNv1q5V55hVWZaleRYc1xEc/view?usp=drive_link).
+- To attend our [challenge @ ICCV 2023](https://omniobject3d.github.io/challenge.html), the hidden test set can be obtained [here](https://drive.google.com/file/d/1i5HPCdCoqoNv1q5V55hVWZaleRYc1xEc/view?usp=drive_link).
 
 
-## Training
+## :hammer: Training
 OmniObject3D implements multiple generalizable NVS methods using official codebases of [PixelNeRF](https://github.com/sxyu/pixel-nerf), [MVSNeRF](https://github.com/apchenstu/mvsnerf), and [IBRNet](https://github.com/googleinterns/IBRNet). We use default hyperparameters for experiments, except for the parameter changes described in [Supp. C.2.2](https://openaccess.thecvf.com/content/CVPR2023/supplemental/Wu_OmniObject3D_Large-Vocabulary_3D_CVPR_2023_supplemental.pdf). For more technical details of these methods, please check the corresponding papers. 
 For a quick start, we provide a brief introduction, dataloaders (to be replaced in the official codebase), and examples on how to use them in the following.
 
@@ -141,9 +141,9 @@ python -m torch.distributed.launch --nproc_per_node=4 train.py --config configs/
 python -m torch.distributed.launch --nproc_per_node=2 train.py --config configs/oo3d_ft.txt
 ```
 
-## Evaluation
+## :microscope: Evaluation
 We provide scripts to generate novel appearance and extract the underlying mesh from implicit density field. Note that all methods use 3 source views by default.
-If you are interested in attending our [challenge]() in the sparse-view reconstruction track, we also provide scripts to generate results on the hidden test set in the standard format for submission.
+If you are interested in attending our [challenge](https://omniobject3d.github.io/challenge.html) in the sparse-view reconstruction track, we also provide scripts to generate results on the hidden test set in the standard format for submission.
 
 ### PixelNeRF
 ```
@@ -169,6 +169,19 @@ python eval/gen_testset_results.py  \
     -D  path/to/the/hidden/testset # run through the whole test set
     --output_dir path/to/output
 ```
+
+The standard output format for the challenge submission would be:
+```
+-- outputs # do NOT rename this
+---- obj_000
+------ images
+------ pcd.ply
+---- obj_001
+...
+---- obj_079
+```
+Compress the folder into a zip file and upload it!
+
 ### MVSNeRF
 ```
 # novel view rendering and extracting mesh
