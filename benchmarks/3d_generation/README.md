@@ -1,17 +1,11 @@
 # 3D Object Generation Benchmark
 
-This is a short documentation of OmniObject3D's benchmark, 3D object generation, organized as follows:
+This is a short documentation of 3D object generation on OmniObject3D.
 
-- [3D Object Generation Benchmark](#3d-object-generation-benchmark)
-  - [Data](##Data)
-  - [Training](##Training)
-    - [GET3D](###GET3D)
-  - [Evaluation](##Evaluation)
-
-## Data
+## :floppy_disk: Data
 We provide the raw scans, 100-view rendered images (under the [nerf_synthetic dataset](https://github.com/bmild/nerf) format), and 24-view rendered images following the format of [GET3D](https://github.com/nv-tlabs/GET3D). The data could be downloaded following the instructions [here](https://github.com/omniobject3d/OmniObject3D#download-the-dataset).
 
-## Training
+## :hammer: Training
 OmniObject3D implements 3D object generation using the official codebase of [GET3D](https://github.com/nv-tlabs/GET3D). We use default hyperparameters for the experiments. 
 For a quick start, we provide brief introduction, dataloaders (to be replaced in the official codebase), and examples on how to use them in the following.
 
@@ -50,7 +44,7 @@ python train_3d.py --outdir=PATH_TO_LOG \
     --fp32 0
 ```
 
-## Evaluation
+## :microscope: Evaluation
 If you are interested in attending our [challenge](https://omniobject3d.github.io/challenge.html) in the generation track, we provide instructions on preparing the outputs for submission in the standard format.
 
 
@@ -100,14 +94,11 @@ python train_3d.py \
 Finally, run the following scripts to generate the output files:
 ```
 python fid_score.py path/to/your/results_img --reso 128 --save_path ./my_results
-
-python compute_cd_mmd.py path/to/your/results_mesh --n_points 2048 --save_path ./my_results
 ```
 
 The standard output format would be:
 ```
 -- outputs # do NOT rename this
----- covmmd
 ---- fid128
 ```
 Compress the folder into a zip file and upload it!
