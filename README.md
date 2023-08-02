@@ -93,7 +93,7 @@ OmniObject3D_Data_Root
     │   │   ├── 16384
 ```
 ## Benchmarks
-The codebase is coming soon.
+Please find the examplar usage of the data for the benchmarks [here](https://github.com/omniobject3d/OmniObject3D/tree/main/benchmarks/).
 
 ## TODO
 - [ ] Language annotations.
