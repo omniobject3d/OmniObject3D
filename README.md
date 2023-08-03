@@ -31,7 +31,8 @@
 ![colored_mesh (1)](assets/teaser.png)
 
 ## Updates
-- [06/2023] We release the training set of OmniObject3D (90\% of the whole data), keeping a hidden testing set for an upcoming challenge. Stay tuned!
+- [08/2023] Our challenge for ICCV 2023 is now live! For more details, please check it out [here](https://omniobject3d.github.io/challenge.html).
+- [06/2023] Training set of OmniObject3D released!
 ## Usage
 ### Download the dataset
 - Sign up [here](https://opendatalab.com/OpenXD-OmniObject3D-New/download).
