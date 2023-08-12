@@ -117,7 +117,7 @@ def extra_args(parser):
     parser.add_argument(
         "--output_dir",
         type=str,
-        default='example_output',
+        default='example_output_80_new_2',
         help="Where to save the results",
     )
     parser.add_argument("--validate_mesh", action='store_true')
@@ -134,7 +134,6 @@ dset = get_split_dataset(
     args.dataset_format, args.datadir, want_split=args.split, training=False
 )
 
-
 for i, data in enumerate(dset):
     data_path = data["path"]
     print("Data instance loaded:", data_path)
@@ -144,9 +143,6 @@ for i, data in enumerate(dset):
     poses_origin = data['poses_origin']
     render_poses = data["render_poses"]
     test_img_files = data["test_img_files"]
-
-    source = np.arange(args.num_src)
-    print("Sampled source: ", source)
 
     focal = data["focal"]
     if isinstance(focal, float):
@@ -161,6 +157,8 @@ for i, data in enumerate(dset):
 
     NV, _, H, W = images.shape
 
+    source = np.arange(NV)
+    print("Sampled source: ", source)
 
     net = make_model(conf["model"]).to(device=device)
     net.load_weights(args)
@@ -191,7 +189,6 @@ for i, data in enumerate(dset):
 
     # source = torch.tensor(list(map(int, args.source.split())), dtype=torch.long)
     NS = len(source)
-    assert not (source >= NV).any()
 
     if renderer.n_coarse < 64:
         # Ensure decent sampling resolution
