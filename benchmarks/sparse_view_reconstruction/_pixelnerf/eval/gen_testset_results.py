@@ -222,7 +222,7 @@ for i, data in enumerate(dset):
             all_depth = torch.cat(all_depth)
             frames = rgb_fine.view(-1, H, W, 3)
             depths = all_depth.view(-1, H, W)
-
+        
             os.makedirs(os.path.join(args.output_dir, 'obj_{:03}'.format(i), 'images'), exist_ok=True)
             for j, frame in enumerate(frames):
                 imageio.imwrite(os.path.join(args.output_dir, 'obj_{:03}'.format(i), 'images', test_img_files[j]), (frame.cpu().numpy() * 255).astype(np.uint8))

@@ -188,11 +188,13 @@ class OO3D_testsub_Dataset(Dataset):
         imgs, poses, render_poses, [H, W, focal], img_files, test_img_files = load_blender_data(os.path.join(self.root_dir, self.scan, 'render'), half_res=True, use_testset=self.args.use_testsub)
         self.src_poses = poses
         poses = np.linalg.inv(poses)
+        n_images = len(poses)
+        self.args.num_source_views = n_images
+
         num_src = self.args.num_source_views
         self.pair_idx[0][:num_src] = np.arange(num_src)
         self.test_img_files = test_img_files
 
-        n_images = len(poses)
         intrinsic = np.array([[focal, 0, H/2], [0, focal, W/2], [0, 0, 1]])
         intrinsics = np.stack([intrinsic for _ in range(n_images)]).astype(np.float32)
 
@@ -234,7 +236,7 @@ class OO3D_testsub_Dataset(Dataset):
             img = img.permute(1,2,0)
             src_imgs += [img]
 
-        src_cameras = [np.concatenate(([self.img_wh[0], self.img_wh[1]], self.intrinsics_4[i].flatten(), self.src_poses[i].flatten())).astype(np.float32) for i in self.pair_idx[0][:3]]
+        src_cameras = [np.concatenate(([self.img_wh[0], self.img_wh[1]], self.intrinsics_4[i].flatten(), self.src_poses[i].flatten())).astype(np.float32) for i in self.pair_idx[0][:num_src]]
         self.src_cameras = torch.from_numpy(np.stack(src_cameras, axis=0))
         self.src_imgs = torch.stack(src_imgs).float()
 
