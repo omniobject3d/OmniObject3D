@@ -210,8 +210,10 @@ if __name__ == '__main__':
 
     if args.validate_nvs:
         print("Generating NVS")
+        savedir = os.path.join(testsavedir, 'images')
+        os.makedirs(savedir, exist_ok=True)
         with torch.no_grad():
-            system(dataset=system.val_dataset, savedir=testsavedir)
+            system(dataset=system.val_dataset, savedir=savedir)
 
     if args.validate_mesh:
         scene = os.path.basename(args.datadir)

@@ -45,7 +45,7 @@ if __name__ == '__main__':
 
     projector = Projector(device='cuda:0')
 
-    testsavedir = os.path.join(args.output_dir, os.path.basename(args.datadir))
+    testsavedir = os.path.join(args.output_dir, os.path.basename(args.datadir), 'images')
     os.makedirs(testsavedir, exist_ok=True)
 
     test_dataset, test_sampler = create_training_dataset(args, mode='val')
@@ -80,4 +80,3 @@ if __name__ == '__main__':
             fine_pred_rgb = ret['outputs_fine']['rgb'].detach().cpu()
             fine_pred_rgb = (255 * np.clip(fine_pred_rgb.numpy(), a_min=0, a_max=1.)).astype(np.uint8)
             imageio.imwrite(os.path.join(testsavedir, img_file), fine_pred_rgb)
-
