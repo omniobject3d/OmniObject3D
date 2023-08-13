@@ -176,7 +176,7 @@ The standard output format for the challenge submission would be:
 ...
 ---- obj_079
 ```
-Compress the folder into a zip file and upload it!
+Compress the folder into a zip file and upload it! An example of a successful submission can be found [here](https://drive.google.com/file/d/1HtxMvdqoAKTQsW5bTja9n3h5eJT24kCk/view?usp=drive_link).
 
 ### MVSNeRF
 ```
