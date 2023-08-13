@@ -168,7 +168,7 @@ python eval/gen_testset_results.py  \
 
 The standard output format for the challenge submission would be:
 ```
--- outputs # do NOT rename this
+-- output # do NOT rename this
 ---- obj_000
 ------ images
 ------ pcd.ply
