@@ -98,7 +98,7 @@ python fid_score.py path/to/your/results_img --reso 128 --save_path ./my_results
 
 The standard output format would be:
 ```
--- outputs # do NOT rename this
+-- output # do NOT rename this
 ---- fid128
 ```
-Compress the folder into a zip file and upload it!
+Compress the folder into a zip file and upload it! An example of a successful submission can be found [here](https://drive.google.com/file/d/1rRkSS-6UuG5vk9XJ_Rh5jixPKt869Rd0/view?usp=drive_link).
