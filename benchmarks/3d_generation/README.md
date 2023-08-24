@@ -23,6 +23,12 @@ GET3D is a generative model that directly generates explicit textured 3D meshes 
         ├── loss.py
         ├── networks_get3d.py
         ├── sample_camera_distribution.py
+        ├── training_loop_3d.py
+    ├── evaluation_scripts
+        ├── compute_cd_mmd.py
+        ├── fid_score.py
+        ├── fidkid-pytorch_foroo3d
+        ├── kid_score.py
     
 # clone from the official repo
 git clone git@github.com:nv-tlabs/GET3D.git
@@ -87,13 +93,12 @@ python train_3d.py \
 --inference_save_interpolation 1 \
 --cond 0 \
 --n_forimg 5000 \
---n_forgeo 1000 \
-
+--n_forgeo 1000
 ```
 
 Finally, run the following scripts to generate the output files:
 ```
-python fid_score.py path/to/your/results_img --reso 128 --save_path ./my_results
+python evaluation_scripts/fid_score.py path/to/your/results_img --reso 128 --save_path ./my_results
 ```
 
 The standard output format would be:
