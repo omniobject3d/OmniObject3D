@@ -31,6 +31,7 @@
 ![colored_mesh (1)](assets/teaser.png)
 
 ## Updates
+- [09/2023] Language annotations by human experts are release [here](https://drive.google.com/file/d/1R-kC3EdMZmwyaX0EkU7CvZK8VSVRPMaS/view?usp=drive_link).
 - [08/2023] Our challenge for ICCV 2023 is now live! For more details, please check it out [here](https://omniobject3d.github.io/challenge.html).
 - [06/2023] Training set of OmniObject3D released!
 ## Usage
@@ -97,7 +98,7 @@ OmniObject3D_Data_Root
 Please find the examplar usage of the data for the benchmarks [here](https://github.com/omniobject3d/OmniObject3D/tree/main/benchmarks/).
 
 ## TODO
-- [ ] Language annotations.
+- [x] Language annotations.
 
 ## License
 The OmniObject3D dataset is released under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
