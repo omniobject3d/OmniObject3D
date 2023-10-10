@@ -31,7 +31,7 @@
 ![colored_mesh (1)](assets/teaser.png)
 
 ## Updates
-- [09/2023] Language annotations by human experts are release [here](https://drive.google.com/file/d/1R-kC3EdMZmwyaX0EkU7CvZK8VSVRPMaS/view?usp=drive_link).
+- [09/2023] Language annotations by human experts are released [here](https://drive.google.com/file/d/1R-kC3EdMZmwyaX0EkU7CvZK8VSVRPMaS/view?usp=drive_link).
 - [08/2023] Our challenge for ICCV 2023 is now live! For more details, please check it out [here](https://omniobject3d.github.io/challenge.html).
 - [06/2023] Training set of OmniObject3D released!
 ## Usage
