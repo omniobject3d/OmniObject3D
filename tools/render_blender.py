@@ -297,7 +297,12 @@ for cat in cats:
             bpy.ops.import_scene.obj(filepath=filepath)
             scene = bpy.context.scene
             mesh_obs = [o for o in scene.objects if o.type == 'MESH']
-            obj = mesh_obs[0]
+            
+            # remove "Cube" if it exists.
+            if "Cube" in bpy.data.objects:
+                obj = mesh_obs[1]
+            else:
+                obj = mesh_obs[0]
 
             scale = get_scale(obj)
             if scale is None:
