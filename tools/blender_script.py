@@ -17,7 +17,7 @@ COLOR_DEPTH = 8
 FORMAT = 'PNG'
 DEPTH_FORMAT = 'OPEN_EXR'
 RANDOM_VIEWS = True
-UPPER_VIEWS = True
+UPPER_VIEWS = False # True by default
 CIRCLE_FIXED_START = (.3,0,0)
 engine = 'BLENDER_EEVEE'
 
@@ -228,7 +228,7 @@ def render_once(RESULTS_PATH, scale, args):
             i = np.random.randint(0,VIEWS)
             b_empty.rotation_euler[2] += radians(stepsize*i)
         if RANDOM_VIEWS:
-            scene.render.filepath = fp + '/r_' + str(i)
+            scene.render.filepath = fp + '/images/r_' + str(i)
             if UPPER_VIEWS:
                 rot = np.random.uniform(0, 1, size=3) * (1,0,2*np.pi)
                 rot[0] = np.abs(np.arccos(1 - 2 * rot[0]) - np.pi/2)
@@ -241,10 +241,9 @@ def render_once(RESULTS_PATH, scale, args):
         
 
         if args.render_depth:
-            depth_file_output.file_slots[0].path = scene.render.filepath + "_depth_"
-        
+            depth_file_output.file_slots[0].path = fp + '/depths/r_' + str(i) + "_depth"        
         if args.render_normal:
-            normal_file_output.file_slots[0].path = scene.render.filepath + "_normal_"
+            normal_file_output.file_slots[0].path = fp + '/normals/r_' + str(i) + "_normal"
 
         if DEBUG:
             break
@@ -252,7 +251,7 @@ def render_once(RESULTS_PATH, scale, args):
             bpy.ops.render.render(write_still=True)  # render still
 
         frame_data = {
-            'file_path': scene.render.filepath,
+            'file_path': scene.render.filepath.split("/")[-1], # 
             'rotation': radians(stepsize),
             'transform_matrix': listify_matrix(cam.matrix_world),
             'scale': scale
@@ -276,7 +275,7 @@ def render_once(RESULTS_PATH, scale, args):
 
 
 if __name__ == "__main__":
-    # export DISPLAY=:0.1 && blender --background --python ./blender_script.py -- --obj_path antique/antique_004
+    # export DISPLAY=:0.1 && blender --background --python ./blender_script.py -- --obj_path antique/antique_019
     # Make light just directional, disable shadows.
 
     root="/home/shenqiuhong/dataset/omniobject"
