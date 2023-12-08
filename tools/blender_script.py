@@ -10,7 +10,7 @@ import argparse
 DEBUG = False
 
 VIEWS = 100
-RESOLUTION = 800
+RESOLUTION = 500
 #RESULTS_PATH = 'results'
 DEPTH_SCALE = 0.1 # 1.4
 COLOR_DEPTH = 8
@@ -113,7 +113,7 @@ def render_once(RESULTS_PATH, scale, args):
     #    # Set the device and feature set
     #    scene.cycles.device = "GPU"
 
-    render.image_settings.color_mode = 'RGBA' # ('RGB', 'RGBA', ...)
+    render.image_settings.color_mode = 'RGB' # ('RGB', 'RGBA', ...)
     render.image_settings.color_depth = str(COLOR_DEPTH)
     render.image_settings.file_format = str(FORMAT)
     render.resolution_x = RESOLUTION
@@ -278,7 +278,6 @@ if __name__ == "__main__":
     # export DISPLAY=:0.1 && blender --background --python ./blender_script.py -- --obj_path antique/antique_019
     # Make light just directional, disable shadows.
 
-    root="/home/shenqiuhong/dataset/omniobject"
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--obj_path",
@@ -286,7 +285,7 @@ if __name__ == "__main__":
         required=True,
         help="Path to the object file",
     )
-    # parser.add_argument("--output_dir", type=str, default="./views")
+    parser.add_argument("--output", type=str, default="./views")
     parser.add_argument("--render_normal", action="store_true")
     parser.add_argument("--render_depth", action="store_true")
 
@@ -309,15 +308,17 @@ if __name__ == "__main__":
     bpy.data.objects['Sun'].rotation_euler = bpy.data.objects['Light'].rotation_euler
     bpy.data.objects['Sun'].rotation_euler[0] += 180
 
-    cats = sorted(os.listdir(root))
     obj_path = args.obj_path
 
-    scan_files = os.listdir(os.path.join(root, obj_path, 'Scan'))
+    scan_files = os.listdir(os.path.join(obj_path, 'Scan'))
     for scan_file in scan_files:
         if '.obj' not in scan_file:
             continue
-        filepath = os.path.join(root, obj_path, 'Scan', scan_file)
-        render_path = os.path.join(root, obj_path, 'render')
+        filepath = os.path.join(obj_path, 'Scan', scan_file)
+        
+        instance_path = "/".join(obj_path.split("/")[-2:])
+        render_path = os.path.join(args.output, instance_path)
+        
         if os.path.exists(render_path):
             import shutil 
             shutil.rmtree(render_path)
