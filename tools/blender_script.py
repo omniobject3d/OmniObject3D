@@ -10,7 +10,7 @@ import argparse
 DEBUG = False
 
 VIEWS = 100
-RESOLUTION = 500
+RESOLUTION = 512
 #RESULTS_PATH = 'results'
 DEPTH_SCALE = 0.1 # 1.4
 COLOR_DEPTH = 8
@@ -20,8 +20,6 @@ RANDOM_VIEWS = True
 UPPER_VIEWS = False # True by default
 CIRCLE_FIXED_START = (.3,0,0)
 engine = 'BLENDER_EEVEE'
-
-
 
 
 def get_scale(obj):
@@ -296,14 +294,14 @@ if __name__ == "__main__":
     light.type = 'SUN'
     light.use_shadow = False
     # Possibly disable specular shading:
-    light.specular_factor = 1.0
+    light.specular_factor = 0.0
     light.energy = 10.0
 
     # Add another light source so stuff facing away from light is not completely dark
     bpy.ops.object.light_add(type='SUN')
     light2 = bpy.data.lights['Sun']
     light2.use_shadow = False
-    light2.specular_factor = 1.0
+    light2.specular_factor = 0.0
     light2.energy = 1
     bpy.data.objects['Sun'].rotation_euler = bpy.data.objects['Light'].rotation_euler
     bpy.data.objects['Sun'].rotation_euler[0] += 180
