@@ -16,11 +16,23 @@ DEPTH_SCALE = 0.1 # 1.4
 COLOR_DEPTH = 8
 FORMAT = 'PNG'
 DEPTH_FORMAT = 'OPEN_EXR'
-RANDOM_VIEWS = True
+RANDOM_VIEWS = False
 UPPER_VIEWS = False # True by default
+ANCHOR_VIEWS = True
 CIRCLE_FIXED_START = (.3,0,0)
 engine = 'BLENDER_EEVEE'
 
+if ANCHOR_VIEWS:
+    num_horizontal_views = 8
+    elevation_degrees = [0, -15, 15, -30, 30]
+    elevation_radians = np.radians(elevation_degrees)
+    azimuth_degrees = np.linspace(0, 2 * np.pi, num_horizontal_views, endpoint=False)
+    rotation_euler_settings = np.zeros((num_horizontal_views, 3))
+    rotation_euler_settings[:, 2] = azimuth_degrees
+    rotation_euler_settings = rotation_euler_settings[None].repeat(len(elevation_degrees), axis=0)
+    rotation_euler_settings[:, :, 0] = elevation_radians[:, None].repeat(num_horizontal_views, axis=1)
+    rotation_euler_settings = rotation_euler_settings.reshape(-1, 3)
+    VIEWS = num_horizontal_views * len(elevation_degrees)
 
 def get_scale(obj):
     maxWCoord = [0,0,0]
@@ -111,7 +123,7 @@ def render_once(RESULTS_PATH, scale, args):
     #    # Set the device and feature set
     #    scene.cycles.device = "GPU"
 
-    render.image_settings.color_mode = 'RGB' # ('RGB', 'RGBA', ...)
+    render.image_settings.color_mode = 'RGBA' # ('RGB', 'RGBA', ...)
     render.image_settings.color_depth = str(COLOR_DEPTH)
     render.image_settings.file_format = str(FORMAT)
     render.resolution_x = RESOLUTION
@@ -233,6 +245,9 @@ def render_once(RESULTS_PATH, scale, args):
                 b_empty.rotation_euler = rot
             else:
                 b_empty.rotation_euler = np.random.uniform(0, 2*np.pi, size=3)
+        elif ANCHOR_VIEWS:
+            scene.render.filepath = fp + '/images/r_' + str(i)
+            b_empty.rotation_euler = rotation_euler_settings[i]
         else:
             print("Rotation {}, {}".format((stepsize * i), radians(stepsize * i)))
             scene.render.filepath = fp + '/r_' + str(i)
@@ -256,15 +271,15 @@ def render_once(RESULTS_PATH, scale, args):
         }
         out_data['frames'].append(frame_data)
 
-        if RANDOM_VIEWS:
-            if UPPER_VIEWS:
-                rot = np.random.uniform(0, 1, size=3) * (1,0,2*np.pi)
-                rot[0] = np.abs(np.arccos(1 - 2 * rot[0]) - np.pi/2)
-                b_empty.rotation_euler = rot
-            else:
-                b_empty.rotation_euler = np.random.uniform(0, 2*np.pi, size=3)
-        else:
-            b_empty.rotation_euler[2] += radians(stepsize)
+        # if RANDOM_VIEWS:
+        #     if UPPER_VIEWS:
+        #         rot = np.random.uniform(0, 1, size=3) * (1,0,2*np.pi)
+        #         rot[0] = np.abs(np.arccos(1 - 2 * rot[0]) - np.pi/2)
+        #         b_empty.rotation_euler = rot
+        #     else:
+        #         b_empty.rotation_euler = np.random.uniform(0, 2*np.pi, size=3)
+        # else:
+        #     b_empty.rotation_euler[2] += radians(stepsize)
 
     if not DEBUG:
         with open(fp + '/' + 'transforms.json', 'w') as out_file:
@@ -315,7 +330,7 @@ if __name__ == "__main__":
         filepath = os.path.join(obj_path, 'Scan', scan_file)
         
         instance_path = "/".join(obj_path.split("/")[-2:])
-        render_path = os.path.join(args.output, instance_path)
+        render_path = os.path.join(args.output, instance_path, "render")
         
         if os.path.exists(render_path):
             import shutil 
