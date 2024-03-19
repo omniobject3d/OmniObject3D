@@ -35,19 +35,29 @@
 - [08/2023] Our challenge for ICCV 2023 is now live! For more details, please check it out [here](https://omniobject3d.github.io/challenge.html).
 - [06/2023] Training set of OmniObject3D released!
 ## Usage
+
 ### Download the dataset
+
 - Sign up [here](https://opendatalab.com/OpenXD-OmniObject3D-New/download).
-- Install OpenDataLab's CLI tools through `pip install opendatalab`.
+- Install OpenDataLab's CLI tools through `pip install openxlab`.
 - View and download the dataset from the command line:
+
+```bash
+openxlab login                                                        # Login, input AK/SK
+openxlab dataset info --dataset-repo OpenXDLab/OmniObject3D-New       # View dataset info
+openxlab dataset ls --dataset-repo OpenXDLab/OmniObject3D-New	      # View a list of dataset files
+openxlab dataset get --dataset-repo OpenXDLab/OmniObject3D-New        # Download the whole dataset (the compressed files require approximately 1.2TB of storage)
 ```
-odl login                                 # Login
-odl ls     OpenXD-OmniObject3D-New        # View a list of dataset files
-odl get    OpenXD-OmniObject3D-New        # Download the whole dataset (the compressed files require approximately 1.2TB of storage)
-```
+
 You can check out the full folder structure on the website above and download a certain portion of the data by specifying the path. For example:
+
+```bash
+openxlab dataset download --dataset-repo OpenXDLab/OmniObject3D-New \
+                          --source-path /raw/point_clouds/ply_files \
+                          --target-path <your-target-path> 
 ```
-odl get OpenXD-OmniObject3D-New/raw/point_clouds/ply_files
-```
+
+For more information, please refer to the [documentation](https://openxlab.org.cn/docs/developers/%E6%95%B0%E6%8D%AE%E9%9B%86/%E6%95%B0%E6%8D%AE%E9%9B%86CLI%EF%BC%88%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%EF%BC%89.html)
 
 ### Batch untar
 To batch-untar a specific folder of compressed files based on your requirements, use the command `bash batch_untar.sh <folder_name>`. 
@@ -107,10 +117,11 @@ The OmniObject3D dataset is released under the [CC BY 4.0](https://creativecommo
 If you find our dataset useful in your research, please use the following citation:
 ```
 @inproceedings{wu2023omniobject3d,
-    author = {Tong Wu, Jiarui Zhang, Xiao Fu, Yuxin Wang, Jiawei Ren, 
-    Liang Pan, Wayne Wu, Lei Yang, Jiaqi Wang, Chen Qian, Dahua Lin, Ziwei Liu},
-    title = {OmniObject3D: Large-Vocabulary 3D Object Dataset for Realistic Perception, Reconstruction and Generation},
-    journal={IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    author = {Tong Wu and Jiarui Zhang and Xiao Fu and Yuxin Wang and Jiawei Ren, 
+    Liang Pan and Wayne Wu and Lei Yang and Jiaqi Wang and Chen Qian and Dahua Lin and Ziwei Liu},
+    title = {OmniObject3D: Large-Vocabulary 3D Object Dataset for Realistic Perception, 
+    Reconstruction and Generation},
+    booktitle={IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
     year={2023}
-    }
+}
 ```
