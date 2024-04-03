@@ -57,7 +57,9 @@ openxlab dataset download --dataset-repo OpenXDLab/OmniObject3D-New \
                           --target-path <your-target-path> 
 ```
 
-For more information, please refer to the [documentation](https://openxlab.org.cn/docs/developers/%E6%95%B0%E6%8D%AE%E9%9B%86/%E6%95%B0%E6%8D%AE%E9%9B%86CLI%EF%BC%88%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%EF%BC%89.html)
+For more information, please refer to the [documentation](https://openxlab.org.cn/docs/developers/%E6%95%B0%E6%8D%AE%E9%9B%86/%E6%95%B0%E6%8D%AE%E9%9B%86CLI%EF%BC%88%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%EF%BC%89.html).
+
+We are also maintaining the dataset on [Google Drive](https://drive.google.com/drive/u/2/folders/1-hlkTqUJR_J2xht1qztmX2xAq_qNw4vn).
 
 ### Batch untar
 To batch-untar a specific folder of compressed files based on your requirements, use the command `bash batch_untar.sh <folder_name>`. 
