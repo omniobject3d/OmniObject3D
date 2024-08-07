@@ -38,7 +38,7 @@
 
 ### Download the dataset
 
-- Sign up [here](https://opendatalab.com/OpenXD-OmniObject3D-New/download).
+- Sign up [here](https://sso.openxlab.org.cn/login).
 - Install OpenDataLab's CLI tools through `pip install openxlab`.
 - View and download the dataset from the command line:
 
