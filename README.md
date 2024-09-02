@@ -44,9 +44,9 @@
 
 ```bash
 openxlab login                                                        # Login, input AK/SK
-openxlab dataset info --dataset-repo OpenXDLab/OmniObject3D-New       # View dataset info
-openxlab dataset ls --dataset-repo OpenXDLab/OmniObject3D-New	      # View a list of dataset files
-openxlab dataset get --dataset-repo OpenXDLab/OmniObject3D-New        # Download the whole dataset (the compressed files require approximately 1.2TB of storage)
+openxlab dataset info --dataset-repo omniobject3d/OmniObject3D-New       # View dataset info
+openxlab dataset ls --dataset-repo omniobject3d/OmniObject3D-New	      # View a list of dataset files
+openxlab dataset get --dataset-repo omniobject3d/OmniObject3D-New        # Download the whole dataset (the compressed files require approximately 1.2TB of storage)
 ```
 
 If you are experiencing an error of `401: {"msg":"login required"}` with your own AKSK, please use the following AKSK:
@@ -58,7 +58,7 @@ SK: nl7kq9palyr6j3pwxolden7ezq4dwjmbgdm81yeo
 You can check out the full folder structure on the website above and download a certain portion of the data by specifying the path. For example:
 
 ```bash
-openxlab dataset download --dataset-repo OpenXDLab/OmniObject3D-New \
+openxlab dataset download --dataset-repo omniobject3d/OmniObject3D-New \
                           --source-path /raw/point_clouds/ply_files \
                           --target-path <your-target-path>
 ```
